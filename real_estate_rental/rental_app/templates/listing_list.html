@@ -68,7 +68,7 @@
     {% for listing in listings %}
         <div class="listing">
             <div class="property-type">{{ listing.get_property_type_display }}</div>
-            <div class="property-title"><a href="/listings/{{ listing.title }}">{{ listing.property.title }}</a></div>
+            <div class="property-title"><a href="/listings/{{ listing.title1 }}">{{ listing.property.title }}</a></div>
             <div class="property-description">{{ listing.property.description }}</div>
             <div class="property-details">
                 <span><strong>Price:</strong> {{ listing.property.price }}$$</span>

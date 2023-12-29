@@ -82,9 +82,9 @@
 </head>
 <body>
     <div class="container">
-        <a class="button" href="/">Home</a> <!-- Added button with a link to / -->
+        <a class="button" href="/">Home</a>
         <div class="card">
-            <h1>List of <span class="accent">Landlords</span></h1> <!-- Added red accent to the heading -->
+            <h1>List of <span class="accent">Landlords</span></h1> 
             <ul>
                 {% for landlord in landlords %}
                 <li><a href="/landlords/{{ landlord.name }}">{{ landlord.name }}</a></li>

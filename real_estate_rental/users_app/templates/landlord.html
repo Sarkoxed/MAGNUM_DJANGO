@@ -94,8 +94,9 @@
         <p><strong>Rating:</strong> <span style="color: #ff4545;">{{ landlord.rating }}</span></p>
         <h3>Owned Listings:</h3>
         <ul>
+            <li>{{ landlord.own_listings.all }}</li>
             {% for listing in landlord.own_listings.all %}
-            <li><a href="/listings/{{ listing.title }}">{{ listing.title }}</a></li>
+            <li><a href="/listings/{{ listing.title1 }}">{{ listing.title1 }}</a></li>
             <li><b><a href="/tenants/{{ listing.tenant.name }}">{{ listing.tenant.name }}</a></b></li>
             {% endfor %}
         </ul>

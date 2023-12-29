@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Listing(models.Model):
-    title = models.CharField(max_length=10, default="aboba")
+    title1 = models.CharField(max_length=10, default="aboba")
     PROPERTY_TYPES = (("house", "HOUSE"), ("flat", "FLAT"), ("warehouse", "WAREHOUSE"))
     property_type = models.CharField(
         max_length=20, choices=PROPERTY_TYPES, default="flat"
@@ -55,6 +55,7 @@ class House(models.Model):
     bedrooms = models.IntegerField(validators=[MinValueValidator(1)])
     floors = models.IntegerField(validators=[MinValueValidator(1)])
     bathrooms = models.IntegerField(validators=[MinValueValidator(0)])
+    url = models.URLField(blank=True)
 
     def __str__(self):
         return self.title

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .review-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .review {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        
+        .rating {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF9800;
+            margin: 0;
+        }
+        
+        .comment {
+            font-size: 14px;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .created-at {
+            font-size: 12px;
+            color: #888;
+            margin: 0;
+        }
+        
+        .listing {
+            font-size: 12px;
+            color: #888;
+            margin: 0;
+        }
+        
+        .tenant {
+            font-size: 12px;
+            color: #888;
+            margin: 0;
+        }
+        
+        .return-home {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FF9800;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="return-home">Return Home</a>
+    <div class="review-container">
+        {% for review in reviews %}
+            <div class="review">
+                <h3 class="rating">{{ review.rating }}/5</h3>
+                <p class="comment">{{ review.comment }}</p>
+                <p class="created-at">Created at: {{ review.created_at }}</p>
+                <p class="listing">Listing: {{ review.listing }}</p>
+                <p class="tenant">Tenant: {{ review.tenant }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+

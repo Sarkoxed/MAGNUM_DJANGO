@@ -11,7 +11,7 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 44px;
             margin-bottom: 20px;
             color: #333;
         }
@@ -76,9 +76,23 @@
         .user-info h3 {
             color: #ff69b4;
         }
+        
+        /* Button Styles */
+        .button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+    <a href="/" class="button">Home</a>
+
     <div class="listing">
         <h1>Listing Details</h1>
         <div class="property-type">{{ listing.get_property_type_display }}</div>
@@ -92,6 +106,7 @@
             <span>Bedrooms: {{ listing.property.bedrooms }}</span>
             <span>Floors: {{ listing.property.floors }}</span>
             <span>Bathrooms: {{ listing.property.bathrooms }}</span>
+            <span><img src="https://i.pinimg.com/736x/77/3c/b0/773cb0b3023e4cde93dad0f1b5498487.jpg" alt="AAAAAAAAA"> </span>
         </div>
         
         <div class="user-info">
