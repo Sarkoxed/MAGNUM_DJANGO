@@ -63,10 +63,26 @@
         .accent {
             color: #ff4545; /* Red accent color */
         }
+
+        .button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue color for button background */
+            color: #fff; /* White text color */
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <a class="button" href="/">Home</a> <!-- Added button with a link to / -->
         <div class="card">
             <h1>List of <span class="accent">Landlords</span></h1> <!-- Added red accent to the heading -->
             <ul>

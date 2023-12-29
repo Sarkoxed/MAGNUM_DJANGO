@@ -61,10 +61,32 @@
             text-decoration: underline;
             color: #ff4545; /* Red color on hover */
         }
+        
+        .button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .button-container a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .button-container a.button:hover {
+            background-color: #ff4545; /* Red color on hover */
+        }
     </style>
 </head>
 <body>
     <h1>Landlord Information</h1>
+    <div class="button-container">
+        <a class="button" href="/">Go to Home</a>
+    </div>
     <div class="info-container">
         <p><strong>Name:</strong> <span style="color: #ff4545;">{{ landlord.name }}</span></p>
         <p><strong>Phone Number:</strong> <span style="color: #ff4545;">{{ landlord.phone_number }}</span></p>

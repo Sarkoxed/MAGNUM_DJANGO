@@ -1,3 +1,7 @@
 .mypy_cache/
 __pycache__/
 db.sqlite3
+real_estate_rental1/
+real_estate_rental2/
+real_estate_rental3/
+migrations/

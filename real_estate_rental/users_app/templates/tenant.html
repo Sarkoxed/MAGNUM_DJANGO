@@ -7,24 +7,54 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
+            background-color: #f8f8f8; /* Light background color */
         }
         
         h1 {
             text-align: center;
             margin-bottom: 30px;
+            color: #ff4081; /* Pink color for heading */
+            font-size: 36px;
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 2px; /* Increased letter spacing */
         }
         
         .info-container {
             max-width: 500px;
             margin: 0 auto;
+            background-color: #fff; /* White background color */
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
         }
         
         .info-container p {
             margin-bottom: 10px;
+            color: #555; /* Dark gray text color */
+        }
+
+        .button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #ff4081; /* Pink color for button background */
+            color: #fff; /* White text color */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 1px; /* Increased letter spacing */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        .button:hover {
+            background-color: #d81b60; /* Darker pink color on hover */
         }
     </style>
 </head>
 <body>
+    <a class="button" href="/">Home</a> <!-- Added button with a link to / -->
     <h1>Tenant Information</h1>
     <div class="info-container">
         <p><strong>Name:</strong> {{ tenant.name }}</p>
@@ -42,3 +72,4 @@
     </div>
 </body>
 </html>
+

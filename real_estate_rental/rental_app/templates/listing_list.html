@@ -4,45 +4,62 @@
     <title>Listings</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
             margin: 0;
             padding: 20px;
         }
 
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
         .listing {
-            background-color: #fff;
-            border-radius: 5px;
+            background-color: #333;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
+            color: #fff;
         }
 
         .property-type {
             font-weight: bold;
-            color: #555;
+            color: #777;
             text-transform: uppercase;
         }
 
         .property-title {
-            font-size: 20px;
+            font-size: 24px;
             margin-top: 10px;
-            color: #333;
+            color: #ff0000; /* Red */
         }
 
         .property-description {
             margin-top: 10px;
-            color: #777;
+            color: #ccc;
+            font-size: 16px;
         }
 
         .property-details {
             margin-top: 10px;
-            color: #555;
+            color: #777;
         }
 
         .property-details span {
             display: block;
             margin-bottom: 5px;
+        }
+
+        .property-details span strong {
+            font-weight: bold;
+        }
+
+        .property-details span.price {
+            font-size: 18px;
+            color: #ff0000; /* Red */
         }
     </style>
 </head>
@@ -54,7 +71,7 @@
             <div class="property-title"><a href="/listings/{{ listing.title }}">{{ listing.property.title }}</a></div>
             <div class="property-description">{{ listing.property.description }}</div>
             <div class="property-details">
-                <span>Price: {{ listing.property.price }}$$</span>
+                <span><strong>Price:</strong> {{ listing.property.price }}$$</span>
             </div>
         </div>
     {% endfor %}
