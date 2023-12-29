@@ -22,7 +22,7 @@ from rental_app.views import listing_list, listing_detail
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("listings/", listing_list, name="listing_list"),
-    path("listings/<str:title>/", listing_detail, name="listing_detail"),
+    path("listings/<str:title>", listing_detail, name="listing_detail"),
     path("landlords", list_landlords, name="list_landlords"),
     path("landlords/<str:name>", list_landlord, name="list_landlord"),
     path("tenants/<str:name>", list_tenant, name="list_tenant"),
