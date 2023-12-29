@@ -47,7 +47,8 @@
 </head>
 <body>
     <h1>Welcome to the Home Page!</h1>
-    <img src="pinkhouse.jpg" alt="MaHouse!" />    
+    {% load static %}
+    <img src="{% static 'pinkhouse.jpg' %}" alt="MaHouse!" />    
     <div class="button-container">
         <a href="/listings" class="button">Listings</a>
         <a href="/landlords" class="button">Landlords</a>

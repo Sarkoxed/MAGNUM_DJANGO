@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIR = [
-        os.path.join(BASE_DIR, "rental_app/static")
+        os.path.join(BASE_DIR, "static")
         ]
 
 # Default primary key field type
