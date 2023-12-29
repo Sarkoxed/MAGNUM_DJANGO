@@ -40,3 +40,18 @@ class Favourite(models.Model):
 
     def __str__(self):
         return f"{self.tenant} - {self.listing}"
+
+class House(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField()
+    address = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+    price = models.DecimalField(max_digits=30, decimal_places=2)
+    rating = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True)
+    square_feet = models.IntegerField()
+    is_free = models.BooleanField()
+    bedrooms = models.IntegerField(validators=[MinValueValidator(1)])
+    floors = models.IntegerField(validators=[MinValueValidator(1)])
+    bathrooms = models.IntegerField(validators=[MinValueValidator(0)])
+    def __str__(self):
+        return self.title

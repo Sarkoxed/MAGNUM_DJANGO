@@ -1,5 +1,16 @@
 from django.db import models
-from utils_app.models import User
+
+class User(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=10)
+    created_at = models.DateTimeField(auto_now_add=True)
+    rating = models.DecimalField(
+        max_digits=2, decimal_places=1, null=True, blank=True, default=0.0
+    )
+
+    def __str__(self):
+        return self.name
 
 class Landlord(User):
     own_listings = models.ManyToManyField("rental_app.Listing")

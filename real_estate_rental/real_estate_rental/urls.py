@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from users_app.views import TenantView, LandlordView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("tenant/", TenantView.as_view(), name="tenant"),
+    path("landlord/", LandlordView.as_view(), name="landlord"),
 ]
