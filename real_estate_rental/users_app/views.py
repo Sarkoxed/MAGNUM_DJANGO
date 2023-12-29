@@ -1,20 +1,22 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Landlord, Tenant
 
-class TenantView(LoginRequiredMixin, TemplateView):
-    template_name = "tenant.html"
+def home(request):
+    return render(request, "home.html")
 
-    def get_conext_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["data"] = "This is only visible to Tenant"
-        return context
-    
-class LandlordView(LoginRequiredMixin, TemplateView):
-    template_name = "landlord.html"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Add landlord-specific context data here
-        context['data'] = 'This is only visible to Landlord'
-        return context
+def list_landlord(request, name):
+    listing = Landlord.objects.get(name=name)
+    context = {"landlord": listing}
+    return render(request, "landlord.html", context)
+
+def list_landlords(request):
+    lands = Landlord.objects.all()
+    context = {"landlords": lands}
+    return render(request, "landlords.html", context)
+
+def list_tenant(request, name):
+    listing = Tenant.objects.get(name=name)
+    context = {"tenant": listing}
+    return render(request, "tenant.html", context)

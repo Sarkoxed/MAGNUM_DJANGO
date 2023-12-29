@@ -1,5 +1,63 @@
-{% for listing in listings %}
-    <h2>{{ listing.title }}</h2>
-    <p>{{ listing.description }}</p>
-    <p>Price: ${{ listing.price }}</p>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .listing {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .property-type {
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .property-title {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .property-description {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        .property-details {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .property-details span {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listings</h1>
+    {% for listing in listings %}
+        <div class="listing">
+            <div class="property-type">{{ listing.get_property_type_display }}</div>
+            <div class="property-title">{{ listing.property.title }}</div>
+            <div class="property-description">{{ listing.property.description }}</div>
+            <div class="property-details">
+                <span>Price: ${{ listing.property.price }}</span>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
+

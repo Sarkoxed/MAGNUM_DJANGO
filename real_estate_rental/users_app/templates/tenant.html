@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landlord Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .info-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .info-container p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tenant Information</h1>
+    <div class="info-container">
+        <p><strong>Name:</strong> {{ tenant.name }}</p>
+        <p><strong>Phone Number:</strong> {{ tenant.phone_number }}</p>
+        <p><strong>Created At:</strong> {{ tenant.created_at }}</p>
+        <p><strong>Rating:</strong> {{ tenant.rating }}</p>
+        <p><strong>leasing_start:</strong> {{ tenant.leasing_start }}</p>
+        <p><strong>leasing_end:</strong> {{ tenant.leasing_end }}</p>
+        <h3>Favs:</h3>
+        <ul>
+            {% for listing in tenant.favourites.all %}
+            <li href= >{{ listing.property.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

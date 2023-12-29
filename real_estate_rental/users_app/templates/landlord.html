@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landlord Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .info-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .info-container p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Landlord Information</h1>
+    <div class="info-container">
+        <p><strong>Name:</strong> {{ landlord.name }}</p>
+        <p><strong>Phone Number:</strong> {{ landlord.phone_number }}</p>
+        <p><strong>Created At:</strong> {{ landlord.created_at }}</p>
+        <p><strong>Rating:</strong> {{ landlord.rating }}</p>
+        <h3>Owned Listings:</h3>
+        <ul>
+            <li>{{landlord.own_listings}}</li>
+            {% for listing in landlord.own_listings.all %}
+            <li><a href="/listings/{{ listing.title }}">{{ listing.title }}</a></li>
+            <li><b><a href="/tenants/{{ listing.tenant.name }}">{{ listing.tenant.name }}</a></b></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

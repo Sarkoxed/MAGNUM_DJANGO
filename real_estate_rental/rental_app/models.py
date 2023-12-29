@@ -1,23 +1,24 @@
 from django.db import models
 from users_app.models import Landlord, Tenant
-from real_estate_app.models import House, Flat, Warehouse
-from utils_app.models import RealEstate
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class Listing(models.Model):
+    title = models.CharField(max_length=10, default="aboba")
     PROPERTY_TYPES = (("house", "HOUSE"), ("flat", "FLAT"), ("warehouse", "WAREHOUSE"))
     property_type = models.CharField(
         max_length=20, choices=PROPERTY_TYPES, default="flat"
     )
-    listing_landlord = models.ForeignKey(
-        Landlord, on_delete=models.CASCADE
+    property = models.ForeignKey(
+        "House", on_delete=models.CASCADE, null=True, blank=True
     )
+    listing_landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE)
     cur_tenant = models.ForeignKey(
         Tenant, on_delete=models.SET_NULL, null=True, blank=True
     )
 
     def __str__(self):
-        return self.title
+        return self.property.title
 
 
 class Review(models.Model):
@@ -41,17 +42,19 @@ class Favourite(models.Model):
     def __str__(self):
         return f"{self.tenant} - {self.listing}"
 
+
 class House(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField()
-    address = models.CharField(max_length=50)
+#    address = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=30, decimal_places=2)
     rating = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True)
-    square_feet = models.IntegerField()
+#    square_feet = models.IntegerField()
     is_free = models.BooleanField()
     bedrooms = models.IntegerField(validators=[MinValueValidator(1)])
     floors = models.IntegerField(validators=[MinValueValidator(1)])
     bathrooms = models.IntegerField(validators=[MinValueValidator(0)])
+
     def __str__(self):
         return self.title

@@ -1,16 +1,20 @@
 from django.shortcuts import render
+from .models import Listing, House
 
-from .models import Listing
 
 def listing_detail(request, listing_id):
-    listing = Listing.objects.get(id=listing_id)
+    listing = Listing.objects.get(title=listing_id)
 
-    context = {
-        'listing': listing
-    }
+    context = {"listing": listing}
 
-    return render(request, 'listing_detail.html', context)
+    return render(request, "listing_detail.html", context)
+
 
 def listing_list(request):
     listings = Listing.objects.all()
-    return render(request, 'rental_app/listing_list.html', {'listings': listings})
+    return render(request, "listing_list.html", {"listings": listings})
+
+def list_houses(request):
+    houses = House.objects.all()
+    return render(request, "listing_list.html", {"listings": listings})
+
